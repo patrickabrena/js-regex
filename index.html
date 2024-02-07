@@ -315,5 +315,239 @@ let alphabetRegex = /change/; // Change this line
 let result = alphabetRegex; // Change this line
 
     -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!--
+      Match Numbers and Letters of the Alphabet
+
+Using the hyphen (-) to match a range of characters is not limited to letters. It also works to match a range of numbers.
+
+For example, /[0-5]/ matches any number between 0 and 5, including the 0 and 5.
+
+Also, it is possible to combine a range of letters and numbers in a single character set.
+
+let jennyStr = "Jenny8675309";
+let myRegex = /[a-z0-9]/ig;
+jennyStr.match(myRegex);
+
+Create a single regex that matches a range of letters between h and s, and a range of numbers between 2 and 6. Remember to include the appropriate flags in the regex.
+Tests
+
+Waiting: Your regex myRegex should match 17 items.
+Waiting: Your regex myRegex should use the global flag.
+Waiting: Your regex myRegex should use the case insensitive flag.
+
+
+
+
+let quoteSample = "Blueberry 3.141592653s are delicious.";
+let myRegex = /change/; // Change this line
+let result = myRegex; // Change this line
+    -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!--
+      Match Single Characters Not Specified
+
+So far, you have created a set of characters that you want to match, but you could also create a set of characters that you do not want to match. These types of character sets are called negated character sets.
+
+To create a negated character set, you place a caret character (^) after the opening bracket and before the characters you do not want to match.
+
+For example, /[^aeiou]/gi matches all characters that are not a vowel. Note that characters like ., !, [, @, / and white space are matched - the negated vowel character set only excludes the vowel characters.
+
+Create a single regex that matches all characters that are not a number or a vowel. Remember to include the appropriate flags in the regex.
+Tests
+
+Waiting: Your regex myRegex should match 9 items.
+Waiting: Your regex myRegex should use the global flag.
+Waiting: Your regex myRegex should use the case insensitive flag.
+
+
+
+let quoteSample = "3 blind mice.";
+let myRegex = /change/; // Change this line
+let result = myRegex; // Change this line
+    -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!--
+      Match Characters that Occur One or More Times
+
+Sometimes, you need to match a character (or group of characters) that appears one or more times in a row. This means it occurs at least once, and may be repeated.
+
+You can use the + character to check if that is the case. Remember, the character or pattern has to be present consecutively. That is, the character has to repeat one after the other.
+
+For example, /a+/g would find one match in abc and return ["a"]. Because of the +, it would also find a single match in aabc and return ["aa"].
+
+If it were instead checking the string abab, it would find two matches and return ["a", "a"] because the a characters are not in a row - there is a b between them. Finally, since there is no a in the string bcd, it wouldn't find a match.
+
+You want to find matches when the letter s occurs one or more times in Mississippi. Write a regex that uses the + sign.
+Tests
+
+Waiting: Your regex myRegex should use the + sign to match one or more s characters.
+Waiting: Your regex myRegex should match 2 items.
+Waiting: The result variable should be an array with two matches of ss
+
+
+
+let difficultSpelling = "Mississippi";
+let myRegex = /change/; // Change this line
+let result = difficultSpelling.match(myRegex);
+    -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!--
+      Match Characters that Occur Zero or More Times
+
+The last challenge used the plus + sign to look for characters that occur one or more times. There's also an option that matches characters that occur zero or more times.
+
+The character to do this is the asterisk or star: *.
+
+let soccerWord = "gooooooooal!";
+let gPhrase = "gut feeling";
+let oPhrase = "over the moon";
+let goRegex = /go*/;
+soccerWord.match(goRegex);
+gPhrase.match(goRegex);
+oPhrase.match(goRegex);
+
+In order, the three match calls would return the values ["goooooooo"], ["g"], and null.
+
+For this challenge, chewieQuote has been initialized as the string Aaaaaaaaaaaaaaaarrrgh! behind the scenes. Create a regex chewieRegex that uses the * character to match an uppercase A character immediately followed by zero or more lowercase a characters in chewieQuote. Your regex does not need flags or character classes, and it should not match any of the other quotes.
+Tests
+
+Waiting: Your regex chewieRegex should use the * character to match zero or more a characters.
+Waiting: Your regex should match the string A in chewieQuote.
+Waiting: Your regex should match the string Aaaaaaaaaaaaaaaa in chewieQuote.
+Waiting: Your regex chewieRegex should match 16 characters in chewieQuote.
+Waiting: Your regex should not match any characters in the string He made a fair move. Screaming about it can't help you.
+Waiting: Your regex should not match any characters in the string Let him have it. It's not wise to upset a Wookiee.
+
+
+
+
+// Only change code below this line
+let chewieRegex = /change/; // Change this line
+// Only change code above this line
+
+let result = chewieQuote.match(chewieRegex);
+    -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!--
+      Find Characters with Lazy Matching
+
+In regular expressions, a greedy match finds the longest possible part of a string that fits the regex pattern and returns it as a match. The alternative is called a lazy match, which finds the smallest possible part of the string that satisfies the regex pattern.
+
+You can apply the regex /t[a-z]*i/ to the string "titanic". This regex is basically a pattern that starts with t, ends with i, and has some letters in between.
+
+Regular expressions are by default greedy, so the match would return ["titani"]. It finds the largest sub-string possible to fit the pattern.
+
+However, you can use the ? character to change it to lazy matching. "titanic" matched against the adjusted regex of /t[a-z]*?i/ returns ["ti"].
+
+Note: Parsing HTML with regular expressions should be avoided, but pattern matching an HTML string with regular expressions is completely fine.
+
+Fix the regex /<.*>/ to return the HTML tag <h1> and not the text "<h1>Winter is coming</h1>". Remember the wildcard . in a regular expression matches any character.
+Tests
+
+Waiting: The result variable should be an array with <h1> in it
+Waiting: myRegex should use lazy matching
+Waiting: myRegex should not include the string h1
+
+
+
+let text = "<h1>Winter is coming</h1>";
+let myRegex = /<.*>/; // Change this line
+let result = text.match(myRegex);
+    -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+
+    <!--
+      Find One or More Criminals in a Hunt
+
+Time to pause and test your new regex writing skills. A group of criminals escaped from jail and ran away, but you don't know how many. However, you do know that they stay close together when they are around other people. You are responsible for finding all of the criminals at once.
+
+Here's an example to review how to do this:
+
+The regex /z+/ matches the letter z when it appears one or more times in a row. It would find matches in all of the following strings:
+
+"z"
+"zzzzzz"
+"ABCzzzz"
+"zzzzABC"
+"abczzzzzzzzzzzzzzzzzzzzzabc"
+
+But it does not find matches in the following strings since there are no letter z characters:
+
+""
+"ABC"
+"abcabc"
+
+Write a greedy regex that finds one or more criminals within a group of other people. A criminal is represented by the capital letter C.
+Tests
+
+Waiting: Your regex should match one criminal (C) in the string C
+Waiting: Your regex should match two criminals (CC) in the string CC
+Waiting: Your regex should match three criminals (CCC) in the string P1P5P4CCCcP2P6P3.
+Waiting: Your regex should match five criminals (CCCCC) in the string P6P2P7P4P5CCCCCP3P1
+Waiting: Your regex should not match any criminals in the empty string ""
+Waiting: Your regex should not match any criminals in the string P1P2P3
+Waiting: Your regex should match fifty criminals (CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC) in the string P2P1P5P4CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCP3.
+    -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!--
+      Match Beginning String Patterns
+
+Prior challenges showed that regular expressions can be used to look for a number of matches. They are also used to search for patterns in specific positions in strings.
+
+In an earlier challenge, you used the caret character (^) inside a character set to create a negated character set in the form [^thingsThatWillNotBeMatched]. Outside of a character set, the caret is used to search for patterns at the beginning of strings.
+
+let firstString = "Ricky is first and can be found.";
+let firstRegex = /^Ricky/;
+firstRegex.test(firstString);
+let notFirst = "You can't find Ricky now.";
+firstRegex.test(notFirst);
+
+The first test call would return true, while the second would return false.
+
+Use the caret character in a regex to find Cal only in the beginning of the string rickyAndCal.
+Tests
+
+Waiting: Your regex should search for the string Cal with a capital letter.
+Waiting: Your regex should not use any flags.
+Waiting: Your regex should match the string Cal at the beginning of the string.
+Waiting: Your regex should not match the string Cal in the middle of a string.
+    -->
   </body>
 </html>
