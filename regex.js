@@ -197,4 +197,12 @@ const findOneOrMoreCriminalsInAHunt = () => {
 };
 findOneOrMoreCriminalsInAHunt();
 
-const matchBeginningStringPatterns = () => {};
+const matchBeginningStringPatterns = () => {
+  //inside character set, caret omits characters /[^aeiou]/
+  //outside of character set, caret used for searching patterns at beginning of string
+  let rickyAndCal = "Cal and Ricky both like racing.";
+  let calRegex = /^Cal/; // Change this line
+  let result = calRegex.test(rickyAndCal);
+  console.log(result); //will return true
+};
+matchBeginningStringPatterns();
