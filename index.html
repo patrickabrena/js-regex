@@ -728,5 +728,276 @@ let movieName = "2001: A Space Odyssey";
 let noNumRegex = /change/; // Change this line
 let result = movieName.match(noNumRegex).length;
     -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!--Restrict Possible Usernames
+
+Usernames are used everywhere on the internet. They are what give users a unique identity on their favorite sites.
+
+You need to check all the usernames in a database. Here are some simple rules that users have to follow when creating their username.
+
+    Usernames can only use alphanumeric characters.
+
+    The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
+
+    Username letters can be lowercase and uppercase.
+
+    Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
+
+Change the regex userCheck to fit the constraints listed above.
+Tests
+
+Waiting: Your regex should match the string JACK
+Waiting: Your regex should not match the string J
+Waiting: Your regex should match the string Jo
+Waiting: Your regex should match the string Oceans11
+Waiting: Your regex should match the string RegexGuru
+Waiting: Your regex should not match the string 007
+Waiting: Your regex should not match the string 9
+Waiting: Your regex should not match the string A1
+Waiting: Your regex should not match the string BadUs3rnam3
+Waiting: Your regex should match the string Z97
+Waiting: Your regex should not match the string c57bT3
+Waiting: Your regex should match the string AB1
+Waiting: Your regex should not match the string J%4
+
+
+
+let username = "JackOfAllTrades";
+let userCheck = /change/; // Change this line
+let result = userCheck.test(username);
+-->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!--
+      Match Whitespace
+
+The challenges so far have covered matching letters of the alphabet and numbers. You can also match the whitespace or spaces between letters.
+
+You can search for whitespace using \s, which is a lowercase s. This pattern not only matches whitespace, but also carriage return, tab, form feed, and new line characters. You can think of it as similar to the character class [ \r\t\f\n\v].
+
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let spaceRegex = /\s/g;
+whiteSpace.match(spaceRegex);
+
+This match call would return [" ", " "].
+
+Change the regex countWhiteSpace to look for multiple whitespace characters in a string.
+Tests
+
+Waiting: Your regex should use the global flag.
+Waiting: Your regex should use the shorthand character \s to match all whitespace characters.
+Waiting: Your regex should find eight spaces in the string Men are from Mars and women are from Venus.
+Waiting: Your regex should find three spaces in the string Space: the final frontier.
+Waiting: Your regex should find no spaces in the string MindYourPersonalSpace
+
+
+
+
+let sample = "Whitespace is important in separating words";
+let countWhiteSpace = /change/; // Change this line
+let result = sample.match(countWhiteSpace);
+    -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!--
+      Match Non-Whitespace Characters
+
+You learned about searching for whitespace using \s, with a lowercase s. You can also search for everything except whitespace.
+
+Search for non-whitespace using \S, which is an uppercase s. This pattern will not match whitespace, carriage return, tab, form feed, and new line characters. You can think of it being similar to the character class [^ \r\t\f\n\v].
+
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let nonSpaceRegex = /\S/g;
+whiteSpace.match(nonSpaceRegex).length;
+
+The value returned by the .length method would be 32.
+
+Change the regex countNonWhiteSpace to look for multiple non-whitespace characters in a string.
+Tests
+
+Waiting: Your regex should use the global flag.
+Waiting: Your regex should use the shorthand character \S to match all non-whitespace characters.
+Waiting: Your regex should find 35 non-spaces in the string Men are from Mars and women are from Venus.
+Waiting: Your regex should find 23 non-spaces in the string Space: the final frontier.
+Waiting: Your regex should find 21 non-spaces in the string MindYourPersonalSpace
+
+
+
+let sample = "Whitespace is important in separating words";
+let countNonWhiteSpace = /change/; // Change this line
+let result = sample.match(countNonWhiteSpace);
+    -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!--Specify Upper and Lower Number of Matches
+
+Recall that you use the plus sign + to look for one or more characters and the asterisk * to look for zero or more characters. These are convenient but sometimes you want to match a certain range of patterns.
+
+You can specify the lower and upper number of patterns with quantity specifiers. Quantity specifiers are used with curly brackets ({ and }). You put two numbers between the curly brackets - for the lower and upper number of patterns.
+
+For example, to match only the letter a appearing between 3 and 5 times in the string ah, your regex would be /a{3,5}h/.
+
+let A4 = "aaaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/;
+multipleA.test(A4);
+multipleA.test(A2);
+
+The first test call would return true, while the second would return false.
+
+Change the regex ohRegex to match the entire phrase Oh no only when it has 3 to 6 letter h's.
+Tests
+
+Waiting: Your regex should use curly brackets.
+Waiting: Your regex should not match the string Ohh no
+Waiting: Your regex should match the string Ohhh no
+Waiting: Your regex should match the string Ohhhh no
+Waiting: Your regex should match the string Ohhhhh no
+Waiting: Your regex should match the string Ohhhhhh no
+Waiting: Your regex should not match the string Ohhhhhhh no
+
+
+let ohStr = "Ohhh no";
+let ohRegex = /change/; // Change this line
+let result = ohRegex.test(ohStr);
+-->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!--
+      Specify Only the Lower Number of Matches
+
+You can specify the lower and upper number of patterns with quantity specifiers using curly brackets. Sometimes you only want to specify the lower number of patterns with no upper limit.
+
+To only specify the lower number of patterns, keep the first number followed by a comma.
+
+For example, to match only the string hah with the letter a appearing at least 3 times, your regex would be /ha{3,}h/.
+
+let A4 = "haaaah";
+let A2 = "haah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleA = /ha{3,}h/;
+multipleA.test(A4);
+multipleA.test(A2);
+multipleA.test(A100);
+
+In order, the three test calls would return true, false, and true.
+
+Change the regex haRegex to match the word Hazzah only when it has four or more letter z's.
+Tests
+
+Waiting: Your regex should use curly brackets.
+Waiting: Your regex should not match the string Hazzah
+Waiting: Your regex should not match the string Hazzzah
+Waiting: Your regex should match the string Hazzzzah
+Waiting: Your regex should match the string Hazzzzzah
+Waiting: Your regex should match the string Hazzzzzzah
+Waiting: Your regex should match the string Hazzah with 30 z's in it.
+
+
+
+let haStr = "Hazzzzah";
+let haRegex = /change/; // Change this line
+let result = haRegex.test(haStr);
+    -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!--
+      Specify Exact Number of Matches
+
+You can specify the lower and upper number of patterns with quantity specifiers using curly brackets. Sometimes you only want a specific number of matches.
+
+To specify a certain number of patterns, just have that one number between the curly brackets.
+
+For example, to match only the word hah with the letter a 3 times, your regex would be /ha{3}h/.
+
+let A4 = "haaaah";
+let A3 = "haaah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleHA = /ha{3}h/;
+multipleHA.test(A4);
+multipleHA.test(A3);
+multipleHA.test(A100);
+
+In order, the three test calls would return false, true, and false.
+
+Change the regex timRegex to match the word Timber only when it has four letter m's.
+Tests
+
+Waiting: Your regex should use curly brackets.
+Waiting: Your regex should not match the string Timber
+Waiting: Your regex should not match the string Timmber
+Waiting: Your regex should not match the string Timmmber
+Waiting: Your regex should match the string Timmmmber
+Waiting: Your regex should not match the string Timber with 30 m's in it.
+
+
+let timStr = "Timmmmber";
+let timRegex = /change/; // Change this line
+let result = timRegex.test(timStr);
+    -->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!--
+      Check for All or None
+
+Sometimes the patterns you want to search for may have parts of it that may or may not exist. However, it may be important to check for them nonetheless.
+
+You can specify the possible existence of an element with a question mark, ?. This checks for zero or one of the preceding element. You can think of this symbol as saying the previous element is optional.
+
+For example, there are slight differences in American and British English and you can use the question mark to match both spellings.
+
+let american = "color";
+let british = "colour";
+let rainbowRegex= /colou?r/;
+rainbowRegex.test(american);
+rainbowRegex.test(british);
+
+Both uses of the test method would return true.
+
+Change the regex favRegex to match both the American English (favorite) and the British English (favourite) version of the word.
+Tests
+
+Waiting: Your regex should use the optional symbol, ?.
+Waiting: Your regex should match the string favorite
+Waiting: Your regex should match the string favourite
+Waiting: Your regex should not match the string fav
+
+
+
+let favWord = "favorite";
+let favRegex = /change/; // Change this line
+let result = favRegex.test(favWord);
+    -->
   </body>
 </html>

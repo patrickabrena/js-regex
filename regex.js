@@ -15,7 +15,7 @@ const USING_THE_TEST_METHOD = () => {
   };
   example();
 };
-USING_THE_TEST_METHOD();
+// USING_THE_TEST_METHOD();
 
 const MATCH_LITERAL_STRINGS = () => {
   //setup
@@ -24,7 +24,7 @@ const MATCH_LITERAL_STRINGS = () => {
   let result = waldoRegex.test(waldoIsHiding);
   console.log(result);
 };
-MATCH_LITERAL_STRINGS();
+// MATCH_LITERAL_STRINGS();
 
 const LITERAL_STRING_WITH_DIFFERENT_POSSIBILITIES = () => {
   //can search for multiple patterns "/coding/" using the OR operator |
@@ -48,7 +48,7 @@ const LITERAL_STRING_WITH_DIFFERENT_POSSIBILITIES = () => {
   console.log(result3); //will throw an error beccause it's not part of petRegex
   console.log(result4);
 };
-LITERAL_STRING_WITH_DIFFERENT_POSSIBILITIES();
+// LITERAL_STRING_WITH_DIFFERENT_POSSIBILITIES();
 
 const IGNORE_CASE_WHILE_MATCHING = () => {
   //can use the flag "i" after regex to match strings ignorecase, igNOreCase and IgnoreCase
@@ -71,7 +71,7 @@ const IGNORE_CASE_WHILE_MATCHING = () => {
   return regexArr;
   // console.log(regexArr);
 };
-IGNORE_CASE_WHILE_MATCHING();
+// IGNORE_CASE_WHILE_MATCHING();
 
 const extractUsingMatchMethod = () => {
   //.match syntax is OPPOSITE OF .test syntax
@@ -86,7 +86,7 @@ const extractUsingMatchMethod = () => {
   let theMatchMethod = extractStr.match(codingRegex);
   console.log(theMatchMethod); // willd displaay an array with the match in it
 };
-extractUsingMatchMethod();
+// extractUsingMatchMethod();
 
 const findMoreThanFirstMatch = () => {
   //to search or extract a pattern more than once, use g flag (global)
@@ -95,7 +95,7 @@ const findMoreThanFirstMatch = () => {
   let result = twinkleStar.match(starRegex); // Change this line
   console.log(result);
 };
-findMoreThanFirstMatch();
+// findMoreThanFirstMatch();
 
 const matchAnythingWithWildcardPeriod = () => {
   //use wildcard character to match any one charaacter
@@ -105,7 +105,7 @@ const matchAnythingWithWildcardPeriod = () => {
   let result = unRegex.test(exampleStr);
   console.log(result); // will display true in console because wildcard (.) matches any one character
 };
-matchAnythingWithWildcardPeriod();
+// matchAnythingWithWildcardPeriod();
 
 const matchSIngleCharacterWithMultiplePossibilities = () => {
   //can search for a literal patttern with flexibility using chracter classes
@@ -116,7 +116,7 @@ const matchSIngleCharacterWithMultiplePossibilities = () => {
   let result = quoteSample.match(vowelRegex); // Change this line
   console.log(result);
 };
-matchSIngleCharacterWithMultiplePossibilities();
+// matchSIngleCharacterWithMultiplePossibilities();
 
 const matchLettersOfTheAlphabet = () => {
   //can define a range of characters within the character set using hypen
@@ -126,7 +126,7 @@ const matchLettersOfTheAlphabet = () => {
   let result = quoteSample.match(alphabetRegex); // Change this line
   console.log(result);
 };
-matchLettersOfTheAlphabet();
+// matchLettersOfTheAlphabet();
 
 const matchNumbersAndLettersOfTheAlphabet = () => {
   //hypen can also work on numbers
@@ -137,7 +137,7 @@ const matchNumbersAndLettersOfTheAlphabet = () => {
   let result = quoteSample.match(myRegex); // Change this line
   console.log(result);
 };
-matchNumbersAndLettersOfTheAlphabet();
+// matchNumbersAndLettersOfTheAlphabet();
 
 const matchSingleCharactersNotSpecified = () => {
   //can create a negated character set using caret (^)
@@ -147,16 +147,16 @@ const matchSingleCharactersNotSpecified = () => {
   let result = quoteSample.match(myRegex); // Change this line
   console.log(result);
 };
-matchSingleCharactersNotSpecified();
+// matchSingleCharactersNotSpecified();
 
 const matchCharactersThatOccurOneOrMoreTimes = () => {
   //use + operator
   let difficultSpelling = "Mississippi";
   let myRegex = /s+/g; // Change this line
   let result = difficultSpelling.match(myRegex);
-  console.log(result);
+  console.log(result); // will return Array ["ss","ss"] in the console
 };
-matchCharactersThatOccurOneOrMoreTimes();
+// matchCharactersThatOccurOneOrMoreTimes();
 
 const matchCahractersThatOccurZeroOrMoreTimes = () => {
   //use * asterisk for zero or more times
@@ -167,7 +167,7 @@ const matchCahractersThatOccurZeroOrMoreTimes = () => {
   let result = chewieQuote.match(chewieRegex);
   console.log(result);
 };
-matchCahractersThatOccurZeroOrMoreTimes();
+// matchCahractersThatOccurZeroOrMoreTimes();
 
 const findCharactersWithLazyMatching = () => {
   //greedy match will find the longest possible part of a string that fits the regex pattern
@@ -206,3 +206,97 @@ const matchBeginningStringPatterns = () => {
   console.log(result); //will return true
 };
 matchBeginningStringPatterns();
+
+const matchEndingStringPatterns = () => {
+  //can search for patterns at the end of the string using dollar sign at end of regex
+  //dollar sign also called ANCHOR CHARACTER
+  let caboose = "The last car on a train is the caboose";
+  let lastRegex = /caboose$/; // Change this line
+  let result = lastRegex.test(caboose);
+  console.log(result); // will return true
+};
+matchEndingStringPatterns();
+
+const matchAllLettersAndNumbers = () => {
+  //There is a shorthand for creating a character set
+  // /[A-Za-z0-9_]+/ = /\w+/  *remember + operator is match characters that happen one or more times
+  //dont' need to use the + operator in this example because of the .length method
+  let quoteSample = "The five boxing wizards jump quickly.";
+  let alphabetRegexV2 = /\w/g; // Change this line
+  let result = quoteSample.match(alphabetRegexV2).length;
+  console.log(result);
+};
+matchAllLettersAndNumbers();
+
+const MATCH_EVERYTHING_BUT_LETTERS_AND_NUMBERS = () => {
+  //shorthand for non-alphanumeric characters = /\W/
+  let quoteSample = "The five boxing wizards jump quickly.";
+  let nonAlphabetRegex = /\W/g; // Change this line
+  let result = quoteSample.match(nonAlphabetRegex).length;
+  console.log(result);
+};
+MATCH_EVERYTHING_BUT_LETTERS_AND_NUMBERS();
+
+const MATCH_ALL_NUMBERS = () => {
+  //shortcut for character class [0-9] is \d
+  let movieName = "2001: A Space Odyssey";
+  let numRegex = /\d/g; // Change this line
+  // let result = movieName.match(numRegex); //// will console log Array(4) ["2", "0", "0", "1"]
+  let result = movieName.match(numRegex)[0].length; //// will return 4
+  console.log(result);
+};
+MATCH_ALL_NUMBERS();
+
+const MATCH_ALL_NON_NUMBERS = () => {
+  //shorthand for [^0-9] is \D
+  let movieName = "2001: A Space Odyssey";
+  let noNumRegex = /\D/g; // Change this line
+  let result = movieName.match(noNumRegex).length;
+  console.log(result);
+};
+MATCH_ALL_NON_NUMBERS();
+
+const RESTRICT_POSSIBLE_USERNAMES = () => {
+  //usernames can only use alphanumeric
+  //cannot start with a number
+  //only numbers in the username have to be at the end
+  //username letters can be lowercase or uppercase
+  //usernames have to be at least 2 chracters long.
+  // let username = "JackOfAllTrades";
+  let username = "A1";
+  let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i; // Change this line
+
+  // let result = userCheck.test(username);
+  let result = username.match(userCheck);
+  console.log(result);
+};
+RESTRICT_POSSIBLE_USERNAMES();
+
+const MATCH_WHITESPACE = () => {
+  // /\s/ matches whitespace, carriage return, tab, form feed and new line characters
+  let sample = "Whitespace is important in separating words";
+  let countWhiteSpace = /\s/g; // Change this line
+  let result = sample.match(countWhiteSpace);
+  console.log(result);
+};
+MATCH_WHITESPACE();
+
+const MATCH_NONWHITESPACE_CHARACTERS = () => {
+  // /\S/ matches all nonwhitespace characters
+  //value returned by .length method should be 32
+  let whiteSpace = "Whitespace. Whitespace everywhere!";
+  let nonSpaceRegex = /\S/g;
+  let result = whiteSpace.match(nonSpaceRegex).length;
+  console.log(result);
+};
+MATCH_NONWHITESPACE_CHARACTERS();
+
+const SPECIFY_UPPER_AND_LOWER_NUMBER_OF_MATCHES = () => {
+  //use curly braces eg a{3,5}h to search for pattern "a" occuring 3 to 5 times
+  let ohStr = "Ohhhhhhh no";
+  let ohRegex = /^.h{3,6}\s../; // Change this line
+  // let result = ohRegex.test(ohStr);
+  let result = ohStr.match(ohRegex);
+  console.log(result);
+};
+SPECIFY_UPPER_AND_LOWER_NUMBER_OF_MATCHES();
