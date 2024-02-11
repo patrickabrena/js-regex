@@ -300,3 +300,23 @@ const SPECIFY_UPPER_AND_LOWER_NUMBER_OF_MATCHES = () => {
   console.log(result);
 };
 SPECIFY_UPPER_AND_LOWER_NUMBER_OF_MATCHES();
+
+const SPECIFY_ONLY_THE_LOWER_NUMBER_OF_MATCHES = () => {
+  //just do: a{3,}h  /// just keep the first number followed by a comma
+  let haStr = "Hazzzzzzzzah";
+  let haRegex = /..z{4,}../; // Change this line
+  let result = haRegex.test(haStr);
+  console.log(result); // will console log true as long as there's at least 4 z in that string
+};
+SPECIFY_ONLY_THE_LOWER_NUMBER_OF_MATCHES();
+
+const SPECIFY_EXACT_NUMBER_OF_MATCHES = () => {
+  //it's like the lower number of matches except without the comma
+  //eg. a{3}h
+  let timStr = "Timmmmmmber";
+  let timRegex = /tim{4}ber/i; // Change this line
+  // let result = timRegex.test(timStr);
+  let result = timStr.match(timRegex);
+  console.log(result);
+};
+SPECIFY_EXACT_NUMBER_OF_MATCHES();
