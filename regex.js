@@ -432,3 +432,14 @@ const USE_CAPTURES_TO_SEARCH_AND_REPLACE = () => {
   console.log(result);
 };
 USE_CAPTURES_TO_SEARCH_AND_REPLACE();
+
+const REMOVE_WHITE_SPACE_FROM_START_AND_END = () => {
+  let hello = "   Hello, World!  ";
+  console.log(hello);
+  //usse replace method and second param should be blank to replace the capature group (i.e the white space at beginning and end ^ $)
+  let wsRegex = /(^\s+)|(\s+$)/g; // Change this line
+
+  let result = hello.replace(wsRegex, ""); // Change this line
+  console.log(result);
+};
+REMOVE_WHITE_SPACE_FROM_START_AND_END();
